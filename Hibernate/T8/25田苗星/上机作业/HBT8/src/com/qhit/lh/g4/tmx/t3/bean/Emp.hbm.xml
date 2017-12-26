@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.lh.g4.tmx.t2.bean.Emp" table="t_emp">
+		<!-- 主键映射 -->
+		<id name="eid" column="eid" type="integer">
+		<!-- 自增方式 -->
+			<generator class="native"></generator>
+		</id>
+		<!-- 普通关系成员映射 -->
+		<property name="ename" column="ename" type="String"></property>
+		<property name="esex" column="esex" type="String"></property>
+		<property name="birthday" column="birthday" type="String"></property>
+		<property name="deptid" column="deptid" type="integer"></property>
+		<set name="emps" cascade="save-update" inverse="true" lazy="false">
+			<key column="deptid"></key>
+			<one-to-many class="com.qhit.lh.g4.tmx.t3.bean.Emp" />
+		</set>
+		<!-- 一对一关系映射 -->
+		<one-to-one name="userinfo" class="com.qhit.lh.g4.tmx.t2.bean.UserInfo" cascade="all"></one-to-one>
+		<!-- 多对一关系映射 -->
+		<many-to-one name="dept" class="com.qhit.lh.g4.tmx.t3.bean.Dept" column="deptid" lazy="false"></many-to-one>
+	</class>
+
+</hibernate-mapping>

@@ -12,6 +12,21 @@ public class Dept {
 		
 	}
 
+	public void delete(Dept dept) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAddress(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void update(Dept dept) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 }

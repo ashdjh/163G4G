@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<class name="com.qhit.lh.g4.tmx.t2.bean.Role" table="t_role" schema="dbo" catalog="t_emp">
+		<!-- 主键映射 -->
+		<id name="rolesId" column="rolesId" type="integer">
+		<!-- 自增方式 :采用外部表的主键-->
+			<generator class="native">
+				<param name="property">emp</param>
+			</generator>
+		</id>
+		<!-- 普通关系成员映射 -->
+		<property name="rolename" column="rolename" type="String"></property>
+		<property name="memo" column="memo" type="String"></property>
+		<!-- 多对多关系映射 -->
+		<set name="users" table="role_user" lazy="false">
+			<key column="rolesId"></key>
+			<many-to-many class="com.qhit.lh.g4.tmx.t3.bean.UserInfo" column="userId"></many-to-many>
+		</set>
+	</class>
+
+</hibernate-mapping>

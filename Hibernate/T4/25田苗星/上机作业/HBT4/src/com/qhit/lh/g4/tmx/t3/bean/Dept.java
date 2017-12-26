@@ -1,6 +1,8 @@
 package com.qhit.lh.g4.tmx.t3.bean;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Dept implements Serializable{
 
@@ -9,9 +11,20 @@ public class Dept implements Serializable{
 	private String address;
 	
 	
+	//1-n的关联：当前部门有哪些员工
+	private Set<Emp> emps;
 	
 	
 	
+	public void setEmps(Set<Emp> emps) {
+		this.emps = emps;
+	}
+
+	public Dept() {
+		super();
+		
+	}
+
 	public Integer getDeptId() {
 		return deptId;
 	}
@@ -42,6 +55,21 @@ public class Dept implements Serializable{
 	}
 
 	public void add(Emp emp) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Dept getEmps() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void delete(Dept dept) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void update(Dept dept) {
 		// TODO Auto-generated method stub
 		
 	}

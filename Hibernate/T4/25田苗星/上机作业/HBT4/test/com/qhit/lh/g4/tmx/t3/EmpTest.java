@@ -9,8 +9,8 @@ import com.qhit.lh.g4.tmx.t3.bean.Emp;
 import com.qhit.lh.g4.tmx.t3.bean.UserInfo;
 
 public class EmpTest {
-	
-	
+
+
 
 	private Dept baseService;
 	@Test
@@ -36,14 +36,20 @@ public class EmpTest {
 		baseService.add(emp);
 	}
 	//删除员工信息
+	@Test
 	public void delete(){
-		
-		
-		
-	}
-	public void update(){
-		
-	}
-	
 
+
+		Dept dept = (Dept)baseService.getObjectById(Dept.class,1);
+		baseService.delete(dept);
+
+	}
+	//更新员工信息
+	@Test
+	public void update(){
+
+		Dept dept = baseService.getObjectById(Dept.class, 1);
+		dept.setAddress("中国北京");
+		baseService.update(dept);
+	}
 }
